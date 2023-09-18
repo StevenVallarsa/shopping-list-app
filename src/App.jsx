@@ -1,75 +1,8 @@
 // npm run dev
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
-
-const listItems = {
-  Miscellaneous: [],
-  Bakery: [
-    {
-      id: 100,
-      isSelected: true,
-      name: "Bread",
-    },
-    {
-      id: 101,
-      isSelected: false,
-      name: "Cookies",
-    },
-  ],
-  Breakfast: [
-    {
-      id: 107,
-      isSelected: false,
-      name: "Cereal",
-    },
-    {
-      id: 108,
-      isSelected: false,
-      name: "Oatmeal",
-    },
-    {
-      id: 109,
-      isSelected: false,
-      name: "Pop Tarts",
-    },
-  ],
-  "Canned & Boxed": [],
-  Dairy: [
-    {
-      id: 102,
-      isSelected: false,
-      name: "Milk",
-    },
-    {
-      id: 103,
-      isSelected: false,
-      name: "Creamer",
-    },
-    {
-      id: 104,
-      isSelected: false,
-      name: "Yogurt",
-    },
-    {
-      id: 105,
-      isSelected: false,
-      name: "Cheese Slices",
-    },
-    {
-      id: 106,
-      isSelected: false,
-      name: "Cheese Block",
-    },
-  ],
-  Ethnic: [],
-  Frozen: [],
-  Household: [],
-  Meat: [],
-  Pharmacy: [],
-  Produce: [],
-  Snacks: [],
-};
+import listItems from "./ListItems";
 
 function App() {
   const [shoppingList, setShoppingList] = useState(listItems);
@@ -77,7 +10,7 @@ function App() {
    * This variable is used to force shadow DOM to refresh due to
    * "shoppingList" change from onClick being a deep change
    */
-  const [changed, setChanged] = useState(true);
+  const [, setChanged] = useState(true);
 
   const depts = [
     "Miscellaneous",
