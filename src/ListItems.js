@@ -1,11 +1,11 @@
-// 131
+// 135
 
 const listItems = {
   Miscellaneous: [],
   Bakery: [
     {
       id: 100,
-      isSelected: true,
+      isSelected: false,
       name: "Bread",
     },
     {
@@ -41,6 +41,16 @@ const listItems = {
       id: 128,
       isSelected: false,
       name: "Peas",
+    },
+    {
+      id: 131,
+      isSelected: false,
+      name: "Fruit",
+    },
+    {
+      id: 132,
+      isSelected: false,
+      name: "Beans",
     },
   ],
   Dairy: [
@@ -101,6 +111,11 @@ const listItems = {
       isSelected: false,
       name: "Raman",
     },
+    {
+      id: 133,
+      isSelected: false,
+      name: "Tomato Paste",
+    },
   ],
   Frozen: [
     {
@@ -144,7 +159,7 @@ const listItems = {
     {
       id: 115,
       isSelected: false,
-      name: "Salami",
+      name: "Lunch Meat",
     },
   ],
   Pharmacy: [
@@ -181,6 +196,11 @@ const listItems = {
       id: 111,
       isSelected: false,
       name: "Peanuts",
+    },
+    {
+      id: 134,
+      isSelected: false,
+      name: "Trail Mix",
     },
   ],
 };

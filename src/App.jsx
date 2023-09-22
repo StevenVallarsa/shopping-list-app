@@ -5,7 +5,7 @@ import "./App.css";
 import listItems from "./ListItems";
 
 function App() {
-  const [shoppingList, setShoppingList] = useState(listItems);
+  const [shoppingList, setShoppingList] = useState(() => JSON.parse(localStorage.getItem("shoppingList")) ?? listItems);
   /**
    * This variable is used to force shadow DOM to refresh due to
    * "shoppingList" change from onClick being a deep change
@@ -52,6 +52,10 @@ function App() {
         ))
       : "";
 
+  const saveList = () => {
+    localStorage.setItem("shoppingList", JSON.stringify(shoppingList));
+  };
+
   return (
     <>
       <h1>Shopping</h1>
@@ -65,7 +69,7 @@ function App() {
           </>
         ))}
       </ul>
-      <button onClick={() => console.log(shoppingList)}>TESTING </button>
+      <button onClick={saveList}>SAVE LIST</button>
     </>
   );
 }
