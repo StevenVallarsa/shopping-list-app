@@ -1,8 +1,13 @@
 // npm run dev
 
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import MakeList from "./MakeList";
 import listItems from "./ListItems";
+import Nav from "./Nav";
+import ShoppingTrip from "./ShoppingTrip";
+import Settings from "./Settings";
 
 function App() {
   const [shoppingList, setShoppingList] = useState(() => JSON.parse(localStorage.getItem("shoppingList")) ?? listItems);
@@ -57,20 +62,25 @@ function App() {
   };
 
   return (
-    <>
-      <h1>Shopping</h1>
-      <ul>
-        {depts.map(dept => (
-          <>
-            <li key={dept} style={{ fontSize: "1.5rem" }}>
-              <strong>{dept}</strong>
-            </li>
-            <ul>{subList(dept)}</ul>
-          </>
-        ))}
-      </ul>
-      <button onClick={saveList}>SAVE LIST</button>
-    </>
+    <BrowserRouter>
+      <Nav />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MakeList
+              shoppingList={shoppingList}
+              subList={subList}
+              saveList={saveList}
+              onItemClick={handleItemClick}
+              depts={depts}
+            />
+          }
+        />
+        <Route path="/shop" element={<ShoppingTrip shoppingList={shoppingList} />} />
+        <Route path="/settings" element={<Settings />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
