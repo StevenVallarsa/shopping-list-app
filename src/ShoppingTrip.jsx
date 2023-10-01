@@ -1,8 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ShoppingTrip({ shoppingList }) {
-  const [currentList, setCurrentList] = useState(shoppingList);
+  const [currentList, setCurrentList] = useState({});
   const [store, setStore] = useState(null);
+
+  useEffect(() => {
+    const temp = { ...shoppingList };
+    for (let cat in temp) {
+      temp[cat] = temp[cat].filter(item => item.isSelected);
+    }
+    setCurrentList(temp);
+  }, []);
 
   const aldiSE = [
     "Miscellaneous",
@@ -36,13 +44,13 @@ export default function ShoppingTrip({ shoppingList }) {
     "Produce",
   ];
 
-  const handleItemClick = (id, dept) => {
-    setCurrentList(prev => {
-      prev[dept] = prev[dept].map(item => (item.id === id ? { ...item, isSelected: !item.isSelected } : item));
-      setChanged(prev => !prev);
-      return prev;
-    });
-  };
+  // const handleItemClick = (id, dept) => {
+  //   setCurrentList(prev => {
+  //     prev[dept] = prev[dept].map(item => (item.id === id ? { ...item, isSelected: !item.isSelected } : item));
+  //     setChanged(prev => !prev);
+  //     return prev;
+  //   });
+  // };
 
   // const subList = dept =>
   //   currentList[dept]
@@ -64,12 +72,14 @@ export default function ShoppingTrip({ shoppingList }) {
     setStore(store);
   };
 
+  const handleItemClick = (cat, item) => {};
+
   return (
     <>
-      <button onClick={() => handleStoreClick("alidSE")}>Aldi</button>
-      <button onClick={() => handleStoreClick("meijerSE")}>Meijer</button>
+      <button onClick={() => handleStoreClick(aldiSE)}>Aldi</button>
+      <button onClick={() => handleStoreClick(meijerSE)}>Meijer</button>
       {!store && <p>Select the store you&apos;re shopping at</p>}
-      {store && <p>You&apos;re shopping at {store}</p>}
+      <ul>{store && store.map(item => currentList[item].map(product => <li key={product.id}>{product.name}</li>))}</ul>
     </>
   );
 }

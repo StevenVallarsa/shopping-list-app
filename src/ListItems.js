@@ -1,4 +1,4 @@
-// 135
+// 136
 
 const listItems = {
   Miscellaneous: [],
@@ -78,6 +78,13 @@ const listItems = {
       id: 106,
       isSelected: false,
       name: "Cheese Block",
+    },
+  ],
+  Drinks: [
+    {
+      id: 135,
+      isSelected: false,
+      name: "Water",
     },
   ],
   Ethnic: [

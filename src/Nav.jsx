@@ -5,15 +5,13 @@ export default function Nav() {
     <nav>
       <ul id="navbar-buttons">
         <li>
-          <NavLink to="/">Make List</NavLink>{" "}
+          <NavLink to="/">Make List</NavLink>
         </li>
         <li>
-          {" "}
-          <NavLink to="/shop">Shop</NavLink>{" "}
+          <NavLink to="/shop">Shop</NavLink>
         </li>
         <li>
-          {" "}
-          <NavLink to="/settings">Settings</NavLink>{" "}
+          <NavLink to="/settings">Settings</NavLink>
         </li>
       </ul>
     </nav>
