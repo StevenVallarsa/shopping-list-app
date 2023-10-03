@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export default function ShoppingTrip({ shoppingList }) {
   const [currentList, setCurrentList] = useState({});
   const [store, setStore] = useState(null);
+  const [, setChanged] = useState(false);
 
   useEffect(() => {
     const temp = { ...shoppingList };
@@ -72,14 +73,39 @@ export default function ShoppingTrip({ shoppingList }) {
     setStore(store);
   };
 
-  const handleItemClick = (cat, item) => {};
+  const handleItemClick = (cat, id) => {
+    currentList[cat] = currentList[cat].map(item => {
+      if (item.id === id) {
+        return { ...item, isSelected: !item.isSelected };
+      } else {
+        return item;
+      }
+    });
+    setChanged(prev => !prev);
+  };
 
   return (
     <>
       <button onClick={() => handleStoreClick(aldiSE)}>Aldi</button>
       <button onClick={() => handleStoreClick(meijerSE)}>Meijer</button>
       {!store && <p>Select the store you&apos;re shopping at</p>}
-      <ul>{store && store.map(item => currentList[item].map(product => <li key={product.id}>{product.name}</li>))}</ul>
+      <ul>
+        {store &&
+          store.map(item =>
+            currentList[item].map(product => (
+              <li
+                key={product.id}
+                style={{
+                  textDecoration: product.isSelected ? "none" : "line-through",
+                  fontWeight: product.isSelected ? "bold" : "normal",
+                }}
+                onClick={() => handleItemClick(item, product.id)}
+              >
+                {product.name}
+              </li>
+            ))
+          )}
+      </ul>
     </>
   );
 }

@@ -13,6 +13,11 @@ li:hover {
   cursor: pointer;
 }
 
+/* nav {
+  display: flex;
+
+} */
+
 nav li {
   text-decoration: none;
   display: inline-block;
@@ -22,7 +27,7 @@ nav li {
 ul {
   list-style-type: none;
   text-align: center;
-  padding: 20px;
+  padding: 0 0 20px 0 ;
 }
 
 
