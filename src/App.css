@@ -5,18 +5,6 @@
   text-align: center;
 }
 
-li {
-  text-decoration: none;
-}
-
-li:hover {
-  cursor: pointer;
-}
-
-/* nav {
-  display: flex;
-
-} */
 
 nav li {
   text-decoration: none;
@@ -30,11 +18,17 @@ ul {
   padding: 0 0 20px 0 ;
 }
 
+li {
+  text-decoration: none;
+}
+
+li:hover {
+  cursor: pointer;
+}
+
 
 nav {
   height: 50px;
-  /* width: 50%; */
-  border: 1px solid red;
   margin: 0 auto;
   position: relative;
 }

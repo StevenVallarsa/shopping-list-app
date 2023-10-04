@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function ShoppingTrip({ shoppingList }) {
+export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   const [currentList, setCurrentList] = useState({});
   const [store, setStore] = useState(null);
   const [, setChanged] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const temp = { ...shoppingList };
@@ -11,6 +13,7 @@ export default function ShoppingTrip({ shoppingList }) {
       temp[cat] = temp[cat].filter(item => item.isSelected);
     }
     setCurrentList(temp);
+    setStore(aldiSE);
   }, []);
 
   const aldiSE = [
@@ -84,6 +87,22 @@ export default function ShoppingTrip({ shoppingList }) {
     setChanged(prev => !prev);
   };
 
+  const handleFinishShopping = () => {
+    for (let category in shoppingList) {
+      if (currentList[category].length > 0) {
+        shoppingList[category] = shoppingList[category].map(item => {
+          for (let listItem of currentList[category]) {
+            if (listItem.id === item.id) {
+              return listItem;
+            }
+          }
+          return item;
+        });
+      }
+    }
+    navigate("/");
+  };
+
   return (
     <>
       <button onClick={() => handleStoreClick(aldiSE)}>Aldi</button>
@@ -106,6 +125,7 @@ export default function ShoppingTrip({ shoppingList }) {
             ))
           )}
       </ul>
+      <button onClick={handleFinishShopping}>Finish Shopping</button>
     </>
   );
 }

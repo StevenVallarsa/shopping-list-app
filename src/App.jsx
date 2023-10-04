@@ -74,10 +74,10 @@ function App() {
               saveList={saveList}
               onItemClick={handleItemClick}
               depts={depts}
-            />
+            />lo
           }
         />
-        <Route path="/shop" element={<ShoppingTrip shoppingList={shoppingList} />} />
+        <Route path="/shop" element={<ShoppingTrip shoppingList={shoppingList} setShoppingList={ setShoppingList} />} />
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
