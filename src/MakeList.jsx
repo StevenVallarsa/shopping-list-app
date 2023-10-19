@@ -1,7 +1,7 @@
 export default function MakeList(props) {
   return (
     <>
-      <h1>Make Shopping List</h1>
+      <h1 style={{ fontSize: "14px" }}>Make Shopping List</h1>
       <ul>
         {props.depts.map(dept => (
           <>

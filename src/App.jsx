@@ -4,7 +4,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import MakeList from "./MakeList";
-import listItems from "./ListItems";
+import listItems from "./listItems";
 import Nav from "./Nav";
 import ShoppingTrip from "./ShoppingTrip";
 import Settings from "./Settings";
@@ -64,22 +64,27 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MakeList
-              shoppingList={shoppingList}
-              subList={subList}
-              saveList={saveList}
-              onItemClick={handleItemClick}
-              depts={depts}
-            />lo
-          }
-        />
-        <Route path="/shop" element={<ShoppingTrip shoppingList={shoppingList} setShoppingList={ setShoppingList} />} />
-        <Route path="/settings" element={<Settings />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MakeList
+                shoppingList={shoppingList}
+                subList={subList}
+                saveList={saveList}
+                onItemClick={handleItemClick}
+                depts={depts}
+              />
+            }
+          />
+          <Route
+            path="/shop"
+            element={<ShoppingTrip shoppingList={shoppingList} setShoppingList={setShoppingList} />}
+          />
+          <Route path="/settings" element={<Settings />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

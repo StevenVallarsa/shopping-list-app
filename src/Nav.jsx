@@ -5,13 +5,19 @@ export default function Nav() {
     <nav>
       <ul id="navbar-buttons">
         <li>
-          <NavLink to="/">Make List</NavLink>
+          <NavLink className="main-buttons" to="/">
+            Make List
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/shop">Shop</NavLink>
+          <NavLink className="main-buttons" to="/shop">
+            Shop
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/settings">Settings</NavLink>
+          <NavLink className="main-buttons" to="/settings">
+            Modify Items
+          </NavLink>
         </li>
       </ul>
     </nav>

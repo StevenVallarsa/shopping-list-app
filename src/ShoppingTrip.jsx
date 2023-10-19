@@ -117,7 +117,9 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
                 style={{
                   textDecoration: product.isSelected ? "none" : "line-through",
                   fontWeight: product.isSelected ? "bold" : "normal",
+                  color: product.isSelected ? "red" : "black",
                 }}
+                className="shopping-list"
                 onClick={() => handleItemClick(item, product.id)}
               >
                 {product.name}
