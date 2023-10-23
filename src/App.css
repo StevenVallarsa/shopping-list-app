@@ -12,11 +12,17 @@ nav li {
   margin: 0 20px;
 }
 
+h2 {
+  padding-top: 20px;
+}
+
 ul {
   list-style-type: none;
   text-align: center;
-  padding: 0 0 20px 0 ;
+  padding: 0 ;
+  margin-bottom: -10px;
 }
+
 
 li {
   text-decoration: none;
