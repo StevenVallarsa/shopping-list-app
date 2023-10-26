@@ -23,7 +23,7 @@ ul {
   margin-bottom: -10px;
 }
 
-.shopped {
+li.shopped {
   text-decoration: "line-through";
   font-weight: "normal";
   color: "black"

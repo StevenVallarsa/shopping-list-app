@@ -74,7 +74,7 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   const handleItemClick = id => {
     setCurrentList(prev =>
       prev.map(item => {
-        if ((item.id = id)) return { ...item, isSelected: !item.isSelected };
+        if (item.id === id) return { ...item, isSelected: !item.isSelected };
         else return item;
       })
     );
@@ -103,15 +103,20 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
       {!store && <p>Select the store you&apos;re shopping at</p>}
       <ul>
         {store &&
-          store.map(item => {
-            console.log(item);
+          store.map(item =>
             currentList
               .filter(product => product.dept === item)
-              .map(product => {
-                console.log(item, product);
-                return <li>{product.name}</li>;
-              });
-          })}
+              .map(product => (
+                <li
+                  key={product.id}
+                  className={product.isSelected ? "not-shopped" : "shopped"}
+                  onClick={() => handleItemClick(product.id)}
+                >
+                  {product.name}
+                  {product.id}
+                </li>
+              ))
+          )}
       </ul>
       <button onClick={handleFinishShopping}>Finish Shopping</button>
     </>
