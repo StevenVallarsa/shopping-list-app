@@ -2,17 +2,12 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function ShoppingTrip({ shoppingList, setShoppingList }) {
-  const [currentList, setCurrentList] = useState({});
+  const [currentList, setCurrentList] = useState([]);
   const [store, setStore] = useState(null);
-  const [, setChanged] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const temp = { ...shoppingList };
-    for (let cat in temp) {
-      temp[cat] = temp[cat].filter(item => item.isSelected);
-    }
-    setCurrentList(temp);
+    setCurrentList(shoppingList.filter(item => item.isSelected));
     setStore(aldiSE);
   }, []);
 
@@ -76,15 +71,13 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
     setStore(store);
   };
 
-  const handleItemClick = (cat, id) => {
-    currentList[cat] = currentList[cat].map(item => {
-      if (item.id === id) {
-        return { ...item, isSelected: !item.isSelected };
-      } else {
-        return item;
-      }
-    });
-    setChanged(prev => !prev);
+  const handleItemClick = id => {
+    setCurrentList(prev =>
+      prev.map(item => {
+        if ((item.id = id)) return { ...item, isSelected: !item.isSelected };
+        else return item;
+      })
+    );
   };
 
   const handleFinishShopping = () => {
@@ -110,22 +103,15 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
       {!store && <p>Select the store you&apos;re shopping at</p>}
       <ul>
         {store &&
-          store.map(item =>
-            currentList[item].map(product => (
-              <li
-                key={product.id}
-                style={{
-                  textDecoration: product.isSelected ? "none" : "line-through",
-                  fontWeight: product.isSelected ? "bold" : "normal",
-                  color: product.isSelected ? "red" : "black",
-                }}
-                className="shopping-list"
-                onClick={() => handleItemClick(item, product.id)}
-              >
-                {product.name}
-              </li>
-            ))
-          )}
+          store.map(item => {
+            console.log(item);
+            currentList
+              .filter(product => product.dept === item)
+              .map(product => {
+                console.log(item, product);
+                return <li>{product.name}</li>;
+              });
+          })}
       </ul>
       <button onClick={handleFinishShopping}>Finish Shopping</button>
     </>
