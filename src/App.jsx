@@ -49,9 +49,7 @@ function App() {
                 <h1>Modify List Items</h1>
                 {deptList.map(dept => (
                   <>
-                    <h2 style={{ marginBottom: "-20px" }} key={dept}>
-                      {dept}
-                    </h2>
+                    <h2 key={dept}>{dept}</h2>
                     <ul>
                       {shoppingList
                         .filter(item => item.dept === dept)

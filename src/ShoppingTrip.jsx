@@ -81,20 +81,16 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   };
 
   const handleFinishShopping = () => {
-    for (let category in shoppingList) {
-      if (currentList[category].length > 0) {
-        shoppingList[category] = shoppingList[category].map(item => {
-          for (let listItem of currentList[category]) {
-            if (listItem.id === item.id) {
-              return listItem;
-            }
-          }
-          return item;
-        });
-      }
+    for (let item of currentList) {
+      shoppingList = shoppingList.map(grocery => {
+        if (item.id !== grocery.id || item.isSelected) return grocery;
+        return { ...grocery, isSelected: false };
+      });
+      setShoppingList(shoppingList);
     }
     navigate("/");
   };
+  //                   className={product.isSelected ? "not-shopped" : "shopped"}
 
   return (
     <>
@@ -113,12 +109,13 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
                   onClick={() => handleItemClick(product.id)}
                 >
                   {product.name}
-                  {product.id}
                 </li>
               ))
           )}
       </ul>
-      <button onClick={handleFinishShopping}>Finish Shopping</button>
+      <button id="finish-shopping" onClick={handleFinishShopping}>
+        Finish Shopping
+      </button>
     </>
   );
 }

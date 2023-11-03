@@ -23,18 +23,17 @@ ul {
   margin-bottom: -10px;
 }
 
-li.shopped {
-  text-decoration: "line-through";
-  font-weight: "normal";
-  color: "black"
+.shopped {
+  text-decoration: line-through;
+  font-weight: normal;
+  color: black
 }
 
 .not-shopped {
-  text-decoration: "none";
-  font-weight: "bold";
-  color: "red"
+  text-decoration: none;
+  font-weight: bold;
+  color: red
 }
-
 
 li {
   text-decoration: none;
@@ -46,6 +45,11 @@ li:hover {
 
 .shopping-list {
   padding-bottom: 5px;
+}
+
+#finish-shopping {
+  margin-top: 40px;
+  background-color: lightgreen;
 }
 
 
