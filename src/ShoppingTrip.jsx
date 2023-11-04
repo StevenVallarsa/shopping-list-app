@@ -43,30 +43,6 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
     "Produce",
   ];
 
-  // const handleItemClick = (id, dept) => {
-  //   setCurrentList(prev => {
-  //     prev[dept] = prev[dept].map(item => (item.id === id ? { ...item, isSelected: !item.isSelected } : item));
-  //     setChanged(prev => !prev);
-  //     return prev;
-  //   });
-  // };
-
-  // const subList = dept =>
-  //   currentList[dept]
-  //     ? currentList[dept].map(item => (
-  //         <li
-  //           style={{
-  //             color: `${item.isSelected ? "red" : "black"}`,
-  //             fontWeight: `${item.isSelected ? "bold" : "normal"}`,
-  //           }}
-  //           key={item.id}
-  //           onClick={() => handleItemClick(item.id, dept)}
-  //         >
-  //           {item.name}
-  //         </li>
-  //       ))
-  //     : "";
-
   const handleStoreClick = store => {
     setStore(store);
   };
@@ -82,15 +58,18 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
 
   const handleFinishShopping = () => {
     for (let item of currentList) {
+      // delete one and done shopped items
+      if (!item.isSelected && item.deleteAfterUse)
+        shoppingList = shoppingList.filter(grocery => grocery.id !== item.id);
+      // deselect shopped items from main list
       shoppingList = shoppingList.map(grocery => {
         if (item.id !== grocery.id || item.isSelected) return grocery;
         return { ...grocery, isSelected: false };
       });
-      setShoppingList(shoppingList);
     }
+    setShoppingList(shoppingList);
     navigate("/");
   };
-  //                   className={product.isSelected ? "not-shopped" : "shopped"}
 
   return (
     <>

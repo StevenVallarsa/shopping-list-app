@@ -9,6 +9,13 @@ const grocerylistItems = [
     deleteAfterUse: false,
   },
   {
+    id: 999,
+    isSelected: true,
+    name: "DELETE ME",
+    dept: "Bakery",
+    deleteAfterUse: true,
+  },
+  {
     id: 101,
     isSelected: false,
     name: "Cookies",

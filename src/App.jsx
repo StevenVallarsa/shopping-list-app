@@ -3,8 +3,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-// import MakeList from "./MakeList";
-// import listItems from "./listItems";
 import Nav from "./Nav";
 import ShoppingTrip from "./ShoppingTrip";
 import Settings from "./Settings";
