@@ -36,13 +36,6 @@ function App() {
           <Route
             path="/"
             element={
-              // <MakeList
-              //   shoppingList={shoppingList}
-              //   subList={subList}
-              //   saveList={saveList}
-              //   onItemClick={handleItemClick}
-              //   depts={depts}
-              // />
               <>
                 <h1>Modify List Items</h1>
                 {deptList.map(dept => (
@@ -74,7 +67,10 @@ function App() {
             path="/shop"
             element={<ShoppingTrip shoppingList={shoppingList} setShoppingList={setShoppingList} />}
           />
-          <Route path="/settings" element={<Settings />} />
+          <Route
+            path="/settings"
+            element={<Settings shoppingList={shoppingList} setShoppingList={setShoppingList} />}
+          />
         </Routes>
       </main>
     </BrowserRouter>
