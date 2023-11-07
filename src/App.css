@@ -18,6 +18,7 @@ h2 {
 
 h2#h2-button {
   display: inline-block;
+  text-align: right;
 }
 
 ul {
@@ -56,6 +57,31 @@ li:hover {
   background-color: lightgreen;
 }
 
+#form {
+  padding: 10px;
+  border: 1px solid green;
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 15px;
+}
+
+#add-button {
+ font-size: 10px;
+}
+
+.active {
+  font-weight: bold;
+  background-color: lightblue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;;
+}
+
+.inActive {
+  border-radius: 5px;
+    padding: 10px;
+  border: solid 1px lightblue;
+}
 
 /* .main-buttons {
   width: 250px;

@@ -38,12 +38,14 @@ export default function ItemInput({ shoppingList, setShoppingList, dept, setDept
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form id="form" onSubmit={handleFormSubmit}>
       <input ref={ref} type="text" placeholder="Enter Your Item" value={itemName} onChange={handleItemInputChange} />
       <br />
       <label htmlFor="oneAndDone">Delete After Shopped</label>{" "}
       <input id="oneAndDone" type="checkbox" checked={checked} onChange={handleCheckboxChange} />
+      <br />
       <input type="submit" value="Add Item" />
+      <button onClick={() => setDept(null)}>Cancel</button>
     </form>
   );
 }

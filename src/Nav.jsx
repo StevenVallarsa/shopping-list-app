@@ -5,17 +5,17 @@ export default function Nav() {
     <nav>
       <ul id="navbar-buttons">
         <li>
-          <NavLink className="main-buttons" to="/">
+          <NavLink className={({ isActive }) => (isActive ? "active" : "inActive")} to="/">
             Make List
           </NavLink>
         </li>
         <li>
-          <NavLink className="main-buttons" to="/shop">
+          <NavLink className={({ isActive }) => (isActive ? "active" : "inActive")} to="/shop">
             Shop
           </NavLink>
         </li>
         <li>
-          <NavLink className="main-buttons" to="/settings">
+          <NavLink className={({ isActive }) => (isActive ? "active" : "inActive")} to="/settings">
             Modify Items
           </NavLink>
         </li>

@@ -26,15 +26,20 @@ export default function Settings({ shoppingList, setShoppingList }) {
     setAddItem(dept);
   };
 
+  const handleRemoveItem = id => {
+    setShoppingList(prev => prev.filter(item => item.id !== id));
+  };
   return (
     <>
       <h1>Modify List Items</h1>
       {deptList.map(dept => (
-        <>
+        <div style={{ textAlign: "left" }} key={dept}>
           <h2 id="h2-button" key={dept}>
             {dept}
           </h2>
-          <button onClick={() => handleAddItem(dept)}>+</button>
+          <button id="add-button" onClick={() => handleAddItem(dept)}>
+            +
+          </button>
           {addItem === dept && (
             <ItemInput
               shoppingList={shoppingList}
@@ -45,7 +50,7 @@ export default function Settings({ shoppingList, setShoppingList }) {
               setIdNumber={setIdNumber}
             />
           )}
-          <ul>
+          <ul style={{ textAlign: "left", marginTop: "-10px" }}>
             {groceries
               .filter(item => item.dept === dept)
               .map(product => (
@@ -54,11 +59,14 @@ export default function Settings({ shoppingList, setShoppingList }) {
                   style={{ fontWeight: product.isSelected ? "bold" : "", color: product.isSelected ? "red" : "black" }}
                   onClick={() => handleItemClick(product.id)}
                 >
-                  {product.name} {product.id}
+                  <button id="add-button" onClick={() => handleRemoveItem(product.id)}>
+                    -
+                  </button>
+                  {product.name}
                 </li>
               ))}
           </ul>
-        </>
+        </div>
       ))}
     </>
   );
