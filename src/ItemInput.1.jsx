@@ -1,7 +1,6 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
 
-export default function ItemInput({ setShoppingList, dept, setDept }) {
+export default function ItemInput({ shoppingList, setShoppingList, dept, setDept }) {
   const [idNumber, setIdNumber] = useState(() => JSON.parse(localStorage.getItem("groceryItemIdNumber")) ?? 136);
   const [itemName, setItemName] = useState("");
   const [checked, setChecked] = useState(true);

@@ -10,6 +10,7 @@ nav li {
   text-decoration: none;
   display: inline-block;
   margin: 0 20px;
+  background-color: white;
 }
 
 h2 {
@@ -67,6 +68,14 @@ li:hover {
 
 #add-button {
  font-size: 10px;
+ font-weight: bold;
+ background-color: lightgreen;
+}
+
+#remove-button {
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(255, 182, 193, 0.599);
 }
 
 .active {
@@ -79,8 +88,9 @@ li:hover {
 
 .inActive {
   border-radius: 5px;
-    padding: 10px;
+  padding: 10px;
   border: solid 1px lightblue;
+  background-color: white;
 }
 
 /* .main-buttons {
@@ -95,8 +105,12 @@ li:hover {
 
 nav {
   height: 50px;
-  margin: 0 auto;
-  position: relative;
+  margin: 5 auto;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border: solid 1px white;
+  padding-bottom: 10px;
 }
 
 button {

@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
 
 import deptList from "./deptList";
-import ItemInput from "./ItemInput";
+import ItemInput from "./ItemInput.1";
 
 export default function Settings({ shoppingList, setShoppingList }) {
   const [groceries, setGroceries] = useState(shoppingList);
@@ -34,12 +35,12 @@ export default function Settings({ shoppingList, setShoppingList }) {
       <h1>Modify List Items</h1>
       {deptList.map(dept => (
         <div style={{ textAlign: "left" }} key={dept}>
-          <h2 id="h2-button" key={dept}>
-            {dept}
-          </h2>
           <button id="add-button" onClick={() => handleAddItem(dept)}>
             +
           </button>
+          <h2 id="h2-button" key={dept}>
+            {dept}
+          </h2>
           {addItem === dept && (
             <ItemInput
               shoppingList={shoppingList}
@@ -59,8 +60,8 @@ export default function Settings({ shoppingList, setShoppingList }) {
                   style={{ fontWeight: product.isSelected ? "bold" : "", color: product.isSelected ? "red" : "black" }}
                   onClick={() => handleItemClick(product.id)}
                 >
-                  <button id="add-button" onClick={() => handleRemoveItem(product.id)}>
-                    -
+                  <button id="remove-button" onClick={() => handleRemoveItem(product.id)}>
+                    —
                   </button>
                   {product.name}
                 </li>
