@@ -5,7 +5,6 @@
   text-align: center;
 }
 
-
 nav li {
   text-decoration: none;
   display: inline-block;
@@ -25,20 +24,20 @@ h2#h2-button {
 ul {
   list-style-type: none;
   text-align: center;
-  padding: 0 ;
+  padding: 0;
   margin-bottom: -10px;
 }
 
 .shopped {
   text-decoration: line-through;
   font-weight: normal;
-  color: black
+  color: black;
 }
 
 .not-shopped {
   text-decoration: none;
   font-weight: bold;
-  color: red
+  color: red;
 }
 
 li {
@@ -67,15 +66,28 @@ li:hover {
 }
 
 #add-button {
- font-size: 10px;
- font-weight: bold;
- background-color: lightgreen;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: lightgreen;
+  margin-bottom: 10px;
 }
 
 #remove-button {
   font-size: 10px;
   font-weight: bold;
   background-color: rgba(255, 182, 193, 0.599);
+  margin-bottom: -5px;
+}
+
+#save-button {
+  position: sticky;
+  top: 70px;
+  border: solid 2px rgb(185, 247, 185);
+}
+
+#save-button:hover {
+  background: lightgreen;
+  color: green;
 }
 
 .active {
@@ -83,7 +95,7 @@ li:hover {
   background-color: lightblue;
   color: white;
   padding: 10px;
-  border-radius: 5px;;
+  border-radius: 5px;
 }
 
 .inActive {
@@ -91,6 +103,12 @@ li:hover {
   padding: 10px;
   border: solid 1px lightblue;
   background-color: white;
+}
+
+.whiteBG {
+  background-color: white;
+  position: sticky;
+  top: 60px;
 }
 
 /* .main-buttons {
@@ -101,7 +119,6 @@ li:hover {
   background-color: chartreuse;
   padding: 10px;
 } */
-
 
 nav {
   height: 50px;
@@ -114,7 +131,7 @@ nav {
 }
 
 button {
-  margin: 10px;
+  margin: 5px;
 }
 
 button:hover {

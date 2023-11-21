@@ -37,6 +37,12 @@ function App() {
             path="/"
             element={
               <>
+                {" "}
+                <div className="whiteBG">
+                  <button id="save-button" onClick={saveList}>
+                    Save List
+                  </button>
+                </div>
                 <h1>Modify List Items</h1>
                 {deptList.map(dept => (
                   <>
@@ -59,7 +65,6 @@ function App() {
                     </ul>
                   </>
                 ))}
-                <button onClick={saveList}>Save List</button>
               </>
             }
           />
