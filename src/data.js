@@ -1,6 +1,6 @@
 // 136
 
-const grocerylistItems = [
+export const grocerylistItems = [
   {
     id: 100,
     isSelected: false,
@@ -262,4 +262,62 @@ const grocerylistItems = [
   },
 ];
 
-export default grocerylistItems;
+export const stores = [
+  {
+    name: "Default",
+    defaultStore: false,
+    order: [
+      "Miscellaneous",
+      "Bakery",
+      "Breakfast",
+      "Canned & Boxed",
+      "Dairy",
+      "Drinks",
+      "Ethnic",
+      "Frozen",
+      "Household",
+      "Meat",
+      "Pharmacy",
+      "Produce",
+      "Snacks",
+    ],
+  },
+  {
+    name: "AldiCascade",
+    defaultStore: false,
+    order: [
+      "Miscellaneous",
+      "Bakery",
+      "Produce",
+      "Meat",
+      "Snacks",
+      "Canned & Boxed",
+      "Ethnic",
+      "Household",
+      "Pharmacy",
+      "Breakfast",
+      "Dairy",
+      "Drinks",
+      "Frozen",
+    ],
+  },
+  {
+    name: "MeijerCascade",
+    defaultStore: true,
+    order: [
+      "Miscellaneous",
+      "Pharmacy",
+      "Household",
+      "Snacks",
+      "Canned & Boxed",
+      "Ethnic",
+      "Drinks",
+      "Breakfast",
+      "Frozen",
+      "Dairy",
+      "Meat",
+      "Bakery",
+      "Produce",
+    ],
+  },
+];

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { stores } from "./data";
+
 export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   const [currentList, setCurrentList] = useState([]);
   const [store, setStore] = useState(null);
@@ -8,8 +10,15 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
 
   useEffect(() => {
     setCurrentList(shoppingList.filter(item => item.isSelected));
-    setStore(aldiSE);
+    stores.forEach(store => {
+      console.log(store);
+      if (store.defaultStore) setStore(store.order);
+    });
   }, []);
+
+  useEffect(() => {
+    console.log(store);
+  }, [store]);
 
   const aldiSE = [
     "Miscellaneous",
@@ -44,7 +53,8 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   ];
 
   const handleStoreClick = store => {
-    setStore(store);
+    console.log(store);
+    setStore(stores.filter(s => s.name === store)[0].order);
   };
 
   const handleItemClick = id => {
@@ -73,8 +83,13 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
 
   return (
     <>
-      <button onClick={() => handleStoreClick(aldiSE)}>Aldi</button>
-      <button onClick={() => handleStoreClick(meijerSE)}>Meijer</button>
+      {stores.map(store => (
+        <button key={store.name} onClick={() => handleStoreClick(store.name)}>
+          {store.name}
+        </button>
+      ))}
+      {/* <button onClick={() => handleStoreClick(aldiSE)}>Aldi</button>
+      <button onClick={() => handleStoreClick(meijerSE)}>Meijer</button> */}
       {!store && <p>Select the store you&apos;re shopping at</p>}
       <ul>
         {store &&
