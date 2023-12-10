@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import deptList from "./deptList";
-import ItemInput from "./ItemInput.1";
+import { stores } from "./data.js";
+import ItemInput from "./ItemInput";
 
 export default function Settings({ shoppingList, setShoppingList }) {
   const [groceries, setGroceries] = useState(shoppingList);
@@ -32,7 +32,7 @@ export default function Settings({ shoppingList, setShoppingList }) {
   return (
     <>
       <h1>Modify List Items</h1>
-      {deptList.map(dept => (
+      {stores[0].order.map(dept => (
         <div style={{ textAlign: "left" }} key={dept}>
           <button id="add-button" onClick={() => handleAddItem(dept)}>
             +

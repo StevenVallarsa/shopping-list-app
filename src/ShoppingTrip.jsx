@@ -6,6 +6,7 @@ import { stores } from "./data";
 export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   const [currentList, setCurrentList] = useState([]);
   const [store, setStore] = useState(null);
+  const [locations, setLocations] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,46 +15,21 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
       console.log(store);
       if (store.defaultStore) setStore(store.order);
     });
+    setLocations(stores);
   }, []);
 
-  useEffect(() => {
-    console.log(store);
-  }, [store]);
-
-  const aldiSE = [
-    "Miscellaneous",
-    "Bakery",
-    "Produce",
-    "Meat",
-    "Snacks",
-    "Canned & Boxed",
-    "Ethnic",
-    "Household",
-    "Pharmacy",
-    "Breakfast",
-    "Dairy",
-    "Drinks",
-    "Frozen",
-  ];
-
-  const meijerSE = [
-    "Miscellaneous",
-    "Pharmacy",
-    "Household",
-    "Snacks",
-    "Canned & Boxed",
-    "Ethnic",
-    "Drinks",
-    "Breakfast",
-    "Frozen",
-    "Dairy",
-    "Meat",
-    "Bakery",
-    "Produce",
-  ];
-
   const handleStoreClick = store => {
-    console.log(store);
+    setLocations(prev =>
+      prev.map(s => {
+        if (s.name === store) {
+          s.isSelected = true;
+          return s;
+        } else {
+          s.isSelected = false;
+          return s;
+        }
+      })
+    );
     setStore(stores.filter(s => s.name === store)[0].order);
   };
 
@@ -84,7 +60,11 @@ export default function ShoppingTrip({ shoppingList, setShoppingList }) {
   return (
     <>
       {stores.map(store => (
-        <button key={store.name} onClick={() => handleStoreClick(store.name)}>
+        <button
+          key={store.name}
+          className={store.isSelected ? "store-selected" : ""}
+          onClick={() => handleStoreClick(store.name)}
+        >
           {store.name}
         </button>
       ))}

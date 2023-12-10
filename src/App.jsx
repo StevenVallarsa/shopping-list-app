@@ -6,8 +6,8 @@ import "./App.css";
 import Nav from "./Nav";
 import ShoppingTrip from "./ShoppingTrip";
 import Settings from "./Settings";
-import deptList from "./deptList";
-import grocerylistItems from "./groceryListItems";
+import deptList from "./TODELETEdeptList.js";
+import { grocerylistItems } from "./data.js";
 
 function App() {
   const [shoppingList, setShoppingList] = useState(

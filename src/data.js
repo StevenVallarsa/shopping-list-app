@@ -266,6 +266,7 @@ export const stores = [
   {
     name: "Default",
     defaultStore: false,
+    isSelected: false,
     order: [
       "Miscellaneous",
       "Bakery",
@@ -285,6 +286,7 @@ export const stores = [
   {
     name: "AldiCascade",
     defaultStore: false,
+    isSelected: false,
     order: [
       "Miscellaneous",
       "Bakery",
@@ -304,6 +306,7 @@ export const stores = [
   {
     name: "MeijerCascade",
     defaultStore: true,
+    isSelected: true,
     order: [
       "Miscellaneous",
       "Pharmacy",

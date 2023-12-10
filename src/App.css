@@ -138,3 +138,8 @@ button:hover {
   color: white;
   background-color: blue;
 }
+
+.store-selected {
+  background-color: green;
+  color: white;
+}
