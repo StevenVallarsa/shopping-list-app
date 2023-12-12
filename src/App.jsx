@@ -6,7 +6,7 @@ import "./App.css";
 import Nav from "./Nav";
 import ShoppingTrip from "./ShoppingTrip";
 import Settings from "./Settings";
-import deptList from "./TODELETEdeptList.js";
+import { stores } from "./data.js";
 import { grocerylistItems } from "./data.js";
 
 function App() {
@@ -44,7 +44,7 @@ function App() {
                   </button>
                 </div>
                 <h1>Modify List Items</h1>
-                {deptList.map(dept => (
+                {stores[0].order.map(dept => (
                   <>
                     <h2 key={dept}>{dept}</h2>
                     <ul>
